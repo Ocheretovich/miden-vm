@@ -21,6 +21,7 @@
 
 - Fixed `Constant::PartialEq` to include `visibility` field in equality comparison, making it consistent with other exportable items (`Procedure`, `TypeAlias`, `EnumType`).
 - `build_trace()` no longer panics when no core trace contexts are provided ([#2809](https://github.com/0xMiden/miden-vm/pull/2809)).
+- Fixed `math::u256::wrapping_mul` stack contract in `crates/lib/core/asm/math/u256.masm` by dropping intermediate words so the procedure returns only the documented `u256` output ([#2810](https://github.com/0xMiden/miden-vm/pull/2810)).
 
 ## 0.21.2 (2026-03-04)
 
