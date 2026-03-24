@@ -107,6 +107,9 @@ pub(crate) mod decorator;
 mod info;
 pub use info::{MastNodeEntry, MastNodeInfo};
 
+mod view;
+pub use view::MastForestView;
+
 mod layout;
 pub(super) use layout::ForestLayout;
 use layout::{TrackingReader, WireFlags, read_header_and_scan_layout};
@@ -524,7 +527,7 @@ impl<'a> SerializedMastForest<'a> {
     }
 }
 
-impl super::MastForestView for SerializedMastForest<'_> {
+impl MastForestView for SerializedMastForest<'_> {
     fn node_count(&self) -> usize {
         SerializedMastForest::node_count(self)
     }
@@ -546,7 +549,7 @@ impl super::MastForestView for SerializedMastForest<'_> {
     }
 }
 
-impl super::MastForestView for MastForest {
+impl MastForestView for MastForest {
     fn node_count(&self) -> usize {
         self.nodes.len()
     }
